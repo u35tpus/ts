@@ -36,9 +36,46 @@ input = [[0.9, 0.1, 0.],
          [1., 0., 0.],
          [1., 0., 0.]]
 
+input2 = [[1., 0., 0.],
+       [1., 0., 0.],
+       [0., 1., 0.],
+       [1., 0., 0.],
+       [0., 0., 1.],
+       [1., 0., 0.],
+       [0., 0., 1.],
+       [0., 1., 0.],
+       [0., 0., 1.],
+       [0., 1., 0.],
+       [0., 0., 1.],
+       [0., 0., 1.],
+       [1., 0., 0.],
+       [0., 0., 1.],
+       [1., 0., 0.],
+       [0., 0., 1.],
+       [0., 0., 1.],
+       [0., 0., 1.],
+       [1., 0., 0.],
+       [0., 0., 1.],
+       [1., 0., 0.],
+       [0., 0., 1.],
+       [0., 0., 1.],
+       [0., 1., 0.],
+       [0., 1., 0.],
+       [0., 1., 0.],
+       [0., 0., 1.],
+       [0., 0., 1.],
+       [0., 0., 1.],
+       [1., 0., 0.],
+       [1., 0., 0.],
+       [0., 0., 1.],
+       [0., 1., 0.],
+       [1., 0., 0.],
+       [1., 0., 0.]]
+
 lbls = [0, 0, 1, 0, 2, 0, 2, 1, 2, 1, 0, 1, 0, 2, 0, 2, 2, 2, 0, 2, 0, 2,
         2, 1, 1, 1, 2, 2, 2, 0, 0, 2, 1, 0, 0]
-
+lbls2= [0, 0, 1, 0, 2, 0, 2, 1, 2, 1, 0, 1, 0, 2, 0, 2, 2, 2, 0, 2, 0, 2,
+       2, 1, 1, 1, 2, 2, 2, 0, 0, 2, 1, 0, 0]
 
 def precision(mtrx):
     true_positives, true_negatives, false_negatives, false_positives = mtrx
@@ -83,7 +120,7 @@ def get_confusion_matrix(labels, probas, target, thre):
     return (true_positives, true_negatives, false_negatives, false_positives)
 
 def roc(lbls, probas, tgt):
-    thresholds = np.linspace(0, 1, 20)
+    thresholds = np.linspace(0, 1, 100, endpoint = True)
 
     x = np.zeros(len(thresholds))
     y = np.zeros(len(thresholds))
@@ -102,4 +139,4 @@ def roc(lbls, probas, tgt):
     return (x,y)
 
 
-print(roc(lbls, input, 1 ))
+print(roc(lbls2, input2, 0 ))
